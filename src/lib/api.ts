@@ -11,7 +11,7 @@ export default async function apiFetch(endpoint: string, options: FetchOptions =
     "Content-Type": "application/json",
   };
 
-  // Always include stored token if available
+  
   const storedToken = localStorage.getItem("token");
   if (options.token || storedToken) {
     headers["Authorization"] = `Bearer ${options.token || storedToken}`;

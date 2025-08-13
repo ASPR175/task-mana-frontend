@@ -8,7 +8,7 @@ export async function login(email: string, password: string) {
   });
 
   if (res.token) {
-    localStorage.setItem("token", res.token); // store token
+    localStorage.setItem("token", res.token); 
   }
 
   return res;
@@ -28,6 +28,6 @@ export async function signup(email: string, password: string) {
 }
 
 export async function logout() {
-  localStorage.removeItem("token"); // remove token
+  localStorage.removeItem("token"); 
   return apiFetch("/api/user/logout", { method: "POST" });
 }

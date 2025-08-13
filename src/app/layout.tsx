@@ -2,7 +2,7 @@
 "use client";
 
 
-import "../styles/globals.css";
+import './globals.css';
 import { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import { useAuthStore } from "@/store/auth";
@@ -20,10 +20,7 @@ function AuthInitializer({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-// export const metadata = {
-//   title: "Task Manager",
-//   description: "Manage your tasks with ease",
-// };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

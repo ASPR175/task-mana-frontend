@@ -5,7 +5,7 @@ import { signup } from "@/lib/auth";
 import toast from "react-hot-toast";
 import { useAuthStore } from "@/store/auth";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,37 +34,51 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <form
-        onSubmit={handleSignup}
-        className="p-6 bg-white rounded shadow-md w-80 space-y-4"
-      >
-        <h1 className="text-xl font-bold">Signup</h1>
+<div className="flex justify-center items-center min-h-screen bg-base-200">
+  <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card-body">
+      <h1 className="text-2xl font-bold text-center">📝 Sign Up</h1>
+
+      <form onSubmit={handleSignup} className="space-y-4">
         <input
           type="email"
           placeholder="Email"
-          className="w-full border p-2"
+          className="input input-bordered w-full"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+
         <input
           type="password"
           placeholder="Password"
-          className="w-full border p-2"
+          className="input input-bordered w-full"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 rounded disabled:opacity-50"
+          className="btn btn-primary w-full"
         >
-          {loading ? "Signing up..." : "Signup"}
+          {loading ? "Signing up..." : "Sign Up"}
         </button>
       </form>
+
+      <div className="divider">OR</div>
+
+      <button
+        onClick={() => router.push("/login")}
+        className="btn btn-outline w-full"
+      >
+        Already have an account? Login
+      </button>
     </div>
+  </div>
+</div>
+
   );
 }
 

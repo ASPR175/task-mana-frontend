@@ -16,10 +16,10 @@ export async function getallmytasks() {
   });
 }
 
-
-export async function deletetasks(task_id:string) {
+export async function deletetasks(id: string) {
   return apiFetch("/api/task/deletetask", {
     method: "POST",
-    body:{task_id}
+    body: { task_id:id},
   });
 }
+
